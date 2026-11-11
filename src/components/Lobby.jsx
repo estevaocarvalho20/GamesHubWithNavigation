@@ -12,6 +12,7 @@ export const LobbyView = ({
   setDifficulty,
   darkMode,
   setDarkMode,
+  errorMessage,
 }) => {
   const isGameStartEnabled = avatar !== undefined && name !== ``;
 
@@ -31,7 +32,9 @@ export const LobbyView = ({
       <div role="status" aria-live="polite" data-testid="greeting">
         {name ? `Hello ${name}` : null}
       </div>
-      <div data-testid="errors" aria-live="polite" className="errors" aria-atomic="true"></div>
+      <div data-testid="errors" aria-live="polite" className="errors" aria-atomic="true">
+        {errorMessage}
+      </div>
 
       <form id="settings-form" onSubmit={handleFormSubmit} noValidate>
         <div className="field">

@@ -1,8 +1,13 @@
+import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { useSettings } from "../context/SettingsContext.jsx";
+
 export function ProtectedRoute() {
-  return (
-    <section aria-labelledby="protected-route-heading">
-      <h2 id="protected-route-heading">Protected route not connected</h2>
-      <p>Read Phase 2: Settings Context and Protected Routes in README.md, then replace this prompt.</p>
-    </section>
-  );
+  const { settings } = useSettings();
+  const location = useLocation();
+
+  if (!settings) {
+    return <Navigate to="/lobby" state={{ from: location }} replace />;
+  }
+
+  return <Outlet />;
 }
