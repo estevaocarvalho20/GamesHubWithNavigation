@@ -1,0 +1,46 @@
+{
+  "name": "react-game-lobby-and-rps",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "test": "npm run test:unit && npm run build && npm run test:e2e",
+    "test:baseline": "vitest run tests/unit/rps.logic.test.js tests/unit/settings-context.test.jsx",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "build:solution": "vite build .instructor-solution",
+    "test:solution": "cross-env GAME_HUB_TEST_SOLUTION=1 vitest run && npm run build:solution && cross-env GAME_HUB_TEST_SOLUTION=1 playwright test"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "7.18.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@playwright/test": "^1.55.1",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.5",
+    "@types/node": "^24.6.2",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
+    "cross-env": "^10.1.0",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "globals": "^16.4.0",
+    "jsdom": "^27.0.0",
+    "vite": "^7.1.7",
+    "vitest": "^3.2.4"
+  }
+}
