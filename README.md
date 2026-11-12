@@ -22,13 +22,13 @@ Read the existing source and tests before changing behavior. The starter intenti
 
 Your router must provide these routes:
 
-| Path | Required page | Access |
-| --- | --- | --- |
-| `/` | Searchable game catalog | Public |
-| `/lobby` | Player settings | Public |
-| `/game/rps` | Rock Paper Scissors | Requires saved settings |
-| `/game/tic-tac-toe` | Tic-Tac-Toe | Requires saved settings |
-| `*` (catch-all) | Not-found page | Public |
+| Path                | Required page           | Access                  |
+| ------------------- | ----------------------- | ----------------------- |
+| `/`                 | Searchable game catalog | Public                  |
+| `/lobby`            | Player settings         | Public                  |
+| `/game/rps`         | Rock Paper Scissors     | Requires saved settings |
+| `/game/tic-tac-toe` | Tic-Tac-Toe             | Requires saved settings |
+| `*` (catch-all)     | Not-found page          | Public                  |
 
 Use the shared layout for every route. The not-found page must explain that the page was not found and offer a route home.
 
@@ -76,19 +76,19 @@ Use the shared layout for every route. The not-found page must explain that the 
 
 The local browser tests use this public interface. Match capitalization, spaces, punctuation, IDs, attributes, accessible names, and status text exactly.
 
-| Behavior | Required contract |
-| --- | --- |
-| Navigation | links named `Home`, `Player Settings`, `Rock Paper Scissors`, and `Tic-Tac-Toe`; current link has `aria-current="page"` |
-| Not found | heading `Page not found`, link named `Return home` |
-| Settings | labels `Player Name`, `Difficulty`, and `Dark Theme`; buttons named `Save Settings` and `Logout` |
-| Search | label `Search games`, input `#game-search`, query key `search` |
-| Empty search result | `No games match your search.` |
-| RPS moves | `[data-move="rock"]`, `[data-move="paper"]`, `[data-move="scissors"]` |
-| RPS scores | `#score-player`, `#score-cpu`, `#score-ties` |
-| RPS history/reset | `#history`, `#reset-game` |
-| Tic-Tac-Toe squares | buttons named `Square 1` through `Square 9` |
-| Tic-Tac-Toe status | `.status`: `Next player: X/O`, `Winner: X/O`, or `Draw` |
-| Tic-Tac-Toe reset | button named `Reset Game` |
+| Behavior            | Required contract                                                                                                       |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Navigation          | links named `Home`, `Player Settings`, `Rock Paper Scissors`, and `Tic-Tac-Toe`; current link has `aria-current="page"` |
+| Not found           | heading `Page not found`, link named `Return home`                                                                      |
+| Settings            | labels `Player Name`, `Difficulty`, and `Dark Theme`; buttons named `Save Settings` and `Logout`                        |
+| Search              | label `Search games`, input `#game-search`, query key `search`                                                          |
+| Empty search result | `No games match your search.`                                                                                           |
+| RPS moves           | `[data-move="rock"]`, `[data-move="paper"]`, `[data-move="scissors"]`                                                   |
+| RPS scores          | `#score-player`, `#score-cpu`, `#score-ties`                                                                            |
+| RPS history/reset   | `#history`, `#reset-game`                                                                                               |
+| Tic-Tac-Toe squares | buttons named `Square 1` through `Square 9`                                                                             |
+| Tic-Tac-Toe status  | `.status`: `Next player: X/O`, `Winner: X/O`, or `Draw`                                                                 |
+| Tic-Tac-Toe reset   | button named `Reset Game`                                                                                               |
 
 ## Local Testing Workflow
 
@@ -133,15 +133,15 @@ Add brief answers below each question and commit them with your project:
 
 1. How does your protected-route return flow preserve the original destination?
 
-   _Your answer:_
+The protected-route return flow preserve by redirecting to the lobby and storing the original location that the user wanted like the pathname and search string. Making the app return to the exat destination instead of always sending the player to the home page.
 
 2. Why is the search URL the source of truth instead of separate component state?
 
-   _Your answer:_
+   The search URL is the source of truth because it can be bookmarked, direct visits, reloads. Because of browser navigation restoration process that rely on temporary component that love inside the current page the user is acessing.
 
 3. Which Tic-Tac-Toe edge case was most useful to test, and why?
 
-   _Your answer:_
+   Tic-Tac-Top is the most useful for testing because it verifies two things at once, the game not replacing the mark already moved to the squared and not advencing an invalid move. Without it a player could overwrite a move or skip the other player turn.
 
 ## Getting Help
 
