@@ -108,3 +108,16 @@ nav div {
   border-left: 1px solid var(--color-border);
   padding-left: 1rem;
 }
+
+.tic-tac-toe-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(4rem, 1fr));
+  gap: 0.5rem;
+  max-width: 20rem;
+  margin-bottom: 1rem;
+}
+
+.tic-tac-toe-board button {
+  aspect-ratio: 1;
+  font-size: 2rem;
+}
